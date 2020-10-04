@@ -30,106 +30,106 @@ class _AnimationPageState extends State<AnimationPage> {
     final double height = MediaQuery.of(context).size.height * 0.5;
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Column(
-        children: [
-          Text(
-            'data',
-            style: TextStyle(fontSize: 50),
-          ),
-          Text(
-            'data',
-            style: TextStyle(fontSize: 50),
-          ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/images/bg.svg',
-                    alignment: Alignment.bottomCenter,
-                    // width: MediaQuery.of(context).size.width,
-                    // height: MediaQuery.of(context).size.height,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 100,
-                    child: Text(
-                      'data',
-                      style: TextStyle(fontSize: 50),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-      // body: Stack(
-      //   children: <Widget>[
-      //     Positioned(
-      //       bottom: -40,
-      //       right: -15,
-      //       width: width,
-      //       child: ClipPath(
-      //         clipper: EllipseClipper3(),
-      //         child: Container(
-      //           // width: width * 0.99,
-      //           color: Color.fromRGBO(23, 116, 95, 0.149),
-      //           height: height,
-      //         ),
-      //       ),
+      // body: Column(
+      //   children: [
+      //     Text(
+      //       'data',
+      //       style: TextStyle(fontSize: 50),
       //     ),
-      //     Positioned(
-      //       bottom: -40,
-      //       left: 0,
-      //       width: width,
-      //       child: ClipPath(
-      //         clipper: EllipseClipper2(),
-      //         child: Container(
-      //           // width: width * 0.99,
-      //           color: Color.fromRGBO(23, 116, 95, 0.149),
-      //           height: height,
-      //         ),
-      //       ),
+      //     Text(
+      //       'data',
+      //       style: TextStyle(fontSize: 50),
       //     ),
-      //     Positioned(
-      //       bottom: -50,
-      //       left: 0,
-      //       width: width,
-      //       child: ClipPath(
-      //         clipper: EllipseClipper(),
-      //         child: Container(
-      //           // width: width * 0.99,
-      //           color: Color.fromRGBO(23, 116, 95, 0.149),
-      //           height: height,
+      //     Expanded(
+      //       child: Align(
+      //         alignment: Alignment.bottomCenter,
+      //         child: Stack(
+      //           alignment: Alignment.bottomCenter,
+      //           children: <Widget>[
+      //             SvgPicture.asset(
+      //               'assets/images/bg.svg',
+      //               alignment: Alignment.bottomCenter,
+      //               // width: MediaQuery.of(context).size.width,
+      //               // height: MediaQuery.of(context).size.height,
+      //             ),
+      //             Container(
+      //               width: MediaQuery.of(context).size.width,
+      //               height: 100,
+      //               child: Text(
+      //                 'data',
+      //                 style: TextStyle(fontSize: 50),
+      //               ),
+      //             ),
+      //           ],
       //         ),
-      //       ),
-      //     ),
-      //     Positioned(
-      //       bottom: 0,
-      //       left: -20,
-      //       width: width + 60,
-      //       height: height,
-      //       child: ClipPath(
-      //         clipper: BezierClipper(),
-      //         child: Container(
-      //           color: Color.fromRGBO(23, 116, 95, 1),
-      //           height: height,
-      //         ),
-      //       ),
-      //     ),
-      //     Align(
-      //       alignment: Alignment.bottomCenter,
-      //       child: Container(
-      //         // width: width * 0.99,
-      //         color: Color.fromRGBO(10, 116, 95, 1),
-      //         height: height * 0.55,
       //       ),
       //     ),
       //   ],
       // ),
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            bottom: -40,
+            right: -15,
+            width: width,
+            child: ClipPath(
+              clipper: EllipseClipper3(),
+              child: Container(
+                // width: width * 0.99,
+                color: Color.fromRGBO(23, 116, 95, 0.149),
+                height: height,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -40,
+            left: 0,
+            width: width,
+            child: ClipPath(
+              clipper: EllipseClipper2(),
+              child: Container(
+                // width: width * 0.99,
+                color: Color.fromRGBO(23, 116, 95, 0.149),
+                height: height,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -50,
+            left: 0,
+            width: width,
+            child: ClipPath(
+              clipper: EllipseClipper(),
+              child: Container(
+                // width: width * 0.99,
+                color: Color.fromRGBO(23, 116, 95, 0.149),
+                height: height,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: -20,
+            width: width + 60,
+            height: height,
+            child: ClipPath(
+              clipper: BezierClipper(),
+              child: Container(
+                color: Color.fromRGBO(23, 116, 95, 1),
+                height: height,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              // width: width * 0.99,
+              color: Color.fromRGBO(10, 116, 95, 1),
+              height: height * 0.55,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
