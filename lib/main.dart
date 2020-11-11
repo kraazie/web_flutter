@@ -1,5 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'model/iptv.dart';
 
 void main() => runApp(VideoApp());
 
@@ -10,10 +12,41 @@ class VideoApp extends StatefulWidget {
 
 class _VideoAppState extends State<VideoApp> {
   VideoPlayerController _controller;
+  List<Iptv> listIPTV = [];
+
+  final TextEditingController _filter = new TextEditingController();
+  String _searchText = "";
+  List<Iptv> filteredIPTV = [];
+  Icon _searchIcon = new Icon(Icons.search);
+  Widget _appBarTitle = new Text('Search Channel');
+
+  Future<String> getJsonString(String path) {
+    return rootBundle
+        .loadString(path)
+        .catchError((err) => print("CatchError: $err"));
+  }
+
+  _VideoAppState() {
+    _filter.addListener(() {
+      if (_filter.text.isEmpty) {
+        setState(() {
+          _searchText = "";
+          filteredIPTV = listIPTV;
+        });
+      } else {
+        setState(() {
+          _searchText = _filter.text;
+        });
+      }
+    });
+  }
 
   @override
   void initState() {
     super.initState();
+
+    getChannelList();
+
     _controller = VideoPlayerController.network(
         'https://92news.vdn.dstreamone.net/92newshd/92hd_160p/playlist.m3u8')
       ..initialize().then((_) {
@@ -22,18 +55,46 @@ class _VideoAppState extends State<VideoApp> {
       });
   }
 
+  Future<void> getChannelList() async {
+    final jsonString = await getJsonString('assets/mockup/iptv.json');
+
+    setState(() {
+      listIPTV = iptvFromJson(jsonString);
+      filteredIPTV = listIPTV;
+      print('Channel Count: ${listIPTV.length}');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       title: 'Video Demo',
       home: Scaffold(
-        body: Center(
-          child: _controller.value.initialized
-              ? AspectRatio(
+        appBar: AppBar(
+          title: _appBarTitle,
+          leading: new IconButton(
+            icon: _searchIcon,
+            onPressed: _searchPressed,
+          ),
+        ),
+        body: Row(
+          children: [
+            Container(
+              width: 300,
+              color: Colors.black12,
+              child: buildListView(context),
+            ),
+            Expanded(
+              child: Container(
+                // color: Colors.red,
+                child: AspectRatio(
                   aspectRatio: _controller.value.aspectRatio,
                   child: VideoPlayer(_controller),
-                )
-              : Container(),
+                ),
+              ),
+            )
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -49,6 +110,73 @@ class _VideoAppState extends State<VideoApp> {
         ),
       ),
     );
+  }
+
+  Widget buildListView(BuildContext context) {
+    if (_searchText.isNotEmpty) {
+      filteredIPTV = [];
+      filteredIPTV = listIPTV
+          .where(
+              (e) => e.name.toLowerCase().contains(_searchText.toLowerCase()))
+          .toList();
+      print("List Count : ${filteredIPTV.length}");
+    }
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListView.builder(
+        itemCount: listIPTV.length == 0 ? 0 : filteredIPTV.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text('${filteredIPTV[index].name}'),
+              onTap: () {
+                print("Loading... : ${filteredIPTV[index].name}");
+
+                try {
+                  _controller =
+                      VideoPlayerController.network(filteredIPTV[index].url)
+                        ..initialize().then((_) {
+                          setState(() {
+                            print("Playing... : ${filteredIPTV[index].name}");
+                            _controller.play();
+                          });
+                        });
+                } catch (e) {
+                  print("Caught Exception : $e");
+                }
+              },
+            ),
+          );
+        },
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+      ),
+    );
+  }
+
+  void _searchPressed() {
+    setState(() {
+      if (this._searchIcon.icon == Icons.search) {
+        this._searchIcon = new Icon(Icons.close);
+        this._appBarTitle = new TextField(
+          keyboardType: TextInputType.text,
+          autofocus: true,
+          controller: _filter,
+          decoration: new InputDecoration(
+            contentPadding: EdgeInsets.zero,
+            hintText: 'Search...',
+            hintStyle: TextStyle(color: Colors.white70, fontSize: 18),
+          ),
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        );
+      } else {
+        this._searchIcon = new Icon(Icons.search);
+        this._appBarTitle = new Text('Search Channel');
+        filteredIPTV = listIPTV;
+        _filter.clear();
+      }
+    });
   }
 
   @override
