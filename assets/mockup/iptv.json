@@ -53091,6 +53091,22 @@
         }
     },
     {
+        "name": "PTV SPORTS",
+        "logo": null,
+        "url": "https://32x2cn7zz29m47vnqt4z-kyz6hw.p5cdn.com/abr_PSLME/zxcv/PSLME/zxcv_720p/chunks.m3u8?token=soheliptv01826655778",
+        "category": null,
+        "language": [],
+        "country": {
+            "code": "pk",
+            "name": "Pakistan"
+        },
+        "tvg": {
+            "id": null,
+            "name": null,
+            "url": null
+        }
+    },
+    {
         "name": "Public Music",
         "logo": "http://mhdtvworld.com/wp-content/uploads/2018/12/public_music_in.png",
         "url": "http://103.199.161.254/Content/publicmusic/Live/Channel(PublicMusic)/index.m3u8",
@@ -102525,6 +102541,22 @@
     {
         "name": "Geo Super",
         "logo": null,
+        "url": " http://208.115.215.42/Geo_Super_HD/tracks-v1a1/mono.m3u8?token=soheliptv01826655778",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "ur",
+                "name": "Urdu"
+            }
+        ],
+        "country": {
+            "code": "pk",
+            "name": "Pakistan"
+        }
+    },
+    {
+        "name": "Geo Super",
+        "logo": null,
         "url": "https://jk3lz82elw79-hls-live.5centscdn.com/Geo/83ccf718ec6040646c295cb25dbef052.sdp/playlist.m3u8",
         "category": "Sports",
         "language": [
@@ -102553,5 +102585,55 @@
             "code": "",
             "name": ""
         }
+    },
+    {
+        "name": "Sony Six HD",
+        "logo": null,
+        "url": "http://208.115.215.42/Sony_Six_HD/tracks-v1a1/mono.m3u8?token=soheliptv01826655778",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "en",
+                "name": "English"
+            }
+        ],
+        "country": {
+            "code": "",
+            "name": ""
+        }
+    },
+    {
+        "name": "Ten Sports",
+        "logo": null,
+        "url": "http://125.209.99.45:43568/BRN/TenSports.stream/chunklist.m3u8",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "en",
+                "name": "English"
+            }
+        ],
+        "country": {
+            "code": "",
+            "name": ""
+        }
+    },
+    {
+        "name": "Sky Sports Main Event",
+        "logo": null,
+        "url": "http://160.119.77.116:8081/iptv/uk-skysports-mainevent.stream/playlist.m3u8",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "en",
+                "name": "English"
+            }
+        ],
+        "country": {
+            "code": "",
+            "name": ""
+        }
     }
+
+   
 ]
