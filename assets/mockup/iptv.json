@@ -102489,5 +102489,69 @@
             "name": null,
             "url": "http://epg.51zmt.top:8000/e.xml.gz"
         }
+    },
+    {
+        "name": "Ary News",
+        "logo": null,
+        "url": "https://www.youtube.com/watch?v=brVXJjT_Bes",
+        "category": null,
+        "language": [
+            {
+                "code": "ur",
+                "name": "Urdu"
+            }
+        ],
+        "country": {
+            "code": "pk",
+            "name": "Pakistan"
+        }
+    },
+    {
+        "name": "Geo News",
+        "logo": null,
+        "url": "https://jk3lz82elw79-hls-live.5centscdn.com/Geo/eae835e83c0494a376229f254f7d3392.sdp/playlist_dvr.m3u8",
+        "category": null,
+        "language": [
+            {
+                "code": "ur",
+                "name": "Urdu"
+            }
+        ],
+        "country": {
+            "code": "pk",
+            "name": "Pakistan"
+        }
+    },
+    {
+        "name": "Geo Super",
+        "logo": null,
+        "url": "https://jk3lz82elw79-hls-live.5centscdn.com/Geo/83ccf718ec6040646c295cb25dbef052.sdp/playlist.m3u8",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "ur",
+                "name": "Urdu"
+            }
+        ],
+        "country": {
+            "code": "pk",
+            "name": "Pakistan"
+        }
+    },
+    {
+        "name": "Sky Sports Cricket",
+        "logo": null,
+        "url": "http://rv.therevenge.co:80/691616211141151/691616211141151/79937?checkedby:hlscat.com",
+        "category": "Sports",
+        "language": [
+            {
+                "code": "ur",
+                "name": "Urdu"
+            }
+        ],
+        "country": {
+            "code": "",
+            "name": ""
+        }
     }
 ]

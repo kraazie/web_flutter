@@ -48,7 +48,7 @@ class _VideoAppState extends State<VideoApp> {
     getChannelList();
 
     _controller = VideoPlayerController.network(
-        'https://92news.vdn.dstreamone.net/92newshd/92hd_160p/playlist.m3u8')
+        'https://32x2cn7zz29m47vnqt4z-kyz6hw.p5cdn.com/abr_PSLME/zxcv/PSLME/zxcv_720p/chunks.m3u8')
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
